@@ -1,12 +1,4 @@
 {
-  "kind": "youtube#searchListResponse",
-  "etag": "Wrk9DEKzjZCRO24ulsroNBPZfzU",
-  "nextPageToken": "CBkQAA",
-  "regionCode": "VN",
-  "pageInfo": {
-    "totalResults": 1000000,
-    "resultsPerPage": 25
-  },
   "items": [
     {
       "kind": "youtube#searchResult",

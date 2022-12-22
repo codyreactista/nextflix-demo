@@ -2,6 +2,7 @@ import cls from "classnames";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+
 import styles from "./card.module.css";
 
 const classMap = {

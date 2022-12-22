@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import styles from "./banner.module.css";
 
 const Banner = (props) => {
@@ -7,6 +8,7 @@ const Banner = (props) => {
   const handleOnPlay = () => {
     console.log("handleOnPlay");
   };
+
   return (
     <div className={styles.container}>
       <div className={styles.leftWrapper}>
