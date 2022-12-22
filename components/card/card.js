@@ -2,6 +2,7 @@ import cls from "classnames";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+
 import styles from "./card.module.css";
 
 const classMap = {
@@ -36,7 +37,7 @@ const Card = (props) => {
         <Image
           src={imgSrc}
           alt="image"
-          layout="fill"
+          fill
           onError={handleOnError}
           className={styles.cardImg}
         />

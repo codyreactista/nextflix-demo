@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+
 import styles from "./navbar.module.css";
 
 const NavBar = (props) => {
@@ -30,16 +31,14 @@ const NavBar = (props) => {
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <Link className={styles.logoLink} href="/">
-          <a>
-            <div className={styles.logoWrapper}>
-              <Image
-                src="/static/netflix.svg"
-                alt="Netflix logo"
-                width="128px"
-                height="34px"
-              />
-            </div>
-          </a>
+          <div className={styles.logoWrapper}>
+            <Image
+              src="/static/netflix.svg"
+              alt="Netflix logo"
+              width="128"
+              height="34"
+            />
+          </div>
         </Link>
 
         <ul className={styles.navItems}>
@@ -56,18 +55,18 @@ const NavBar = (props) => {
               <p className={styles.username}>{username}</p>
               {/** Expand more icon */}
               <Image
-                src={"/static/expand_more.svg"}
+                src="/static/expand_more.svg"
                 alt="Expand dropdown"
-                width="24px"
-                height="24px"
+                width="24"
+                height="24"
               />
             </button>
 
             {showDropdown && (
               <div className={styles.navDropdown}>
                 <div>
-                  <Link href="/login">
-                    <a className={styles.linkName}>Sign out</a>
+                  <Link href="/login" className={styles.linkName}>
+                    Sign out
                   </Link>
                   <div className={styles.lineWrapper}></div>
                 </div>
