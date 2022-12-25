@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import Loading from "@/components/loading/loading";
+import { magic } from "@/lib/magic-client";
 import "@/styles/globals.css";
 
 const robotoSlab = Roboto_Slab({
@@ -12,19 +13,19 @@ const robotoSlab = Roboto_Slab({
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // (async () => {
-    //   const isLoggedIn = await magic.user.isLoggedIn();
-    //   if (isLoggedIn) {
-    //     // route to /
-    //     router.push("/");
-    //   } else {
-    //     // route to /login
-    //     router.push("/login");
-    //   }
-    // })();
+    (async () => {
+      const isLoggedIn = await magic.user.isLoggedIn();
+      if (isLoggedIn) {
+        // route to /
+        router.push("/");
+      } else {
+        // route to /login
+        router.push("/login");
+      }
+    })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

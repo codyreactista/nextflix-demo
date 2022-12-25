@@ -16,6 +16,7 @@ const NavBar = () => {
     (async () => {
       try {
         const { email } = await magic.user.getMetadata();
+
         if (email) {
           setUsername(email);
         }
@@ -45,7 +46,6 @@ const NavBar = () => {
 
     try {
       await magic.user.logout();
-      console.log(await magic.user.isLoggedIn());
       router.push("/login");
     } catch (error) {
       console.error("Error logging out", error);
