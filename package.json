@@ -12,8 +12,8 @@
     "@next/font": "^13.0.7",
     "classnames": "^2.3.2",
     "cookie": "^0.5.0",
-    "framer-motion": "^7.10.0",
-    "jsonwebtoken": "^9.0.0",
+    "framer-motion": "^8.0.2",
+    "jose": "^4.11.1",
     "magic-sdk": "^11.0.0",
     "next": "^13.0.7",
     "react": "^18.2.0",
@@ -21,7 +21,7 @@
     "react-modal": "^3.16.1"
   },
   "devDependencies": {
-    "eslint": "8.29.0",
+    "eslint": "8.30.0",
     "eslint-config-next": "^13.0.7"
   }
 }

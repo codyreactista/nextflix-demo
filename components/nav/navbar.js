@@ -17,9 +17,11 @@ const NavBar = () => {
     (async () => {
       try {
         const { email } = await magic.user.getMetadata();
+        const didToken = await magic.user.getIdToken();
 
         if (email) {
           setUsername(email);
+          setDidToken(didToken);
         }
       } catch (error) {
         console.error("Error retrieving email:", error);

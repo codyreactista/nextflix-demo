@@ -36,10 +36,12 @@ const Login = () => {
 
   const handleLoginWithEmail = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
 
     if (email) {
+      // log in a user by their email
       try {
+        setIsLoading(true);
+
         const didToken = await magic.auth.loginWithMagicLink({
           email,
         });
