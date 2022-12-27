@@ -1,7 +1,9 @@
-.sectionWrapper {
-  margin-top: 1.5rem;
+.main {
+  padding-bottom: 4rem /* 64px */;
+  margin-top: 6rem /* 96px */;
 }
 
-.main {
-  padding-bottom: 4rem;
+.sectionWrapper {
+  margin-top: 1.5rem /* 24px */;
+  margin-bottom: 1.5rem /* 24px */;
 }

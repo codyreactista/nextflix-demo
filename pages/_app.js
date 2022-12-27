@@ -1,5 +1,8 @@
 import { Roboto_Slab } from "@next/font/google";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
+import Loading from "@/components/loading/loading";
 import "@/styles/globals.css";
 
 const robotoSlab = Roboto_Slab({
@@ -8,9 +11,30 @@ const robotoSlab = Roboto_Slab({
 });
 
 export default function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const handleComplete = () => {
+      setIsLoading(false);
+    };
+    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on("routeChangeError", handleComplete);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off("routeChangeError", handleComplete);
+    };
+  }, [router]);
+
   return (
-    <div className={robotoSlab.className}>
-      <Component {...pageProps} />
-    </div>
+    <>
+      <style jsx global>{`
+        body {
+          font-family: ${robotoSlab.style.fontFamily};
+        }
+      `}</style>
+      {isLoading ? <Loading /> : <Component {...pageProps} />}
+    </>
   );
 }
