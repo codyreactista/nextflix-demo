@@ -9,6 +9,7 @@ import styles from "./navbar.module.css";
 const NavBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [username, setUsername] = useState("");
+  const [didToken, setDidToken] = useState("");
 
   const router = useRouter();
 
@@ -21,7 +22,7 @@ const NavBar = () => {
           setUsername(email);
         }
       } catch (error) {
-        console.log("Error retrieving email:", error);
+        console.error("Error retrieving email:", error);
       }
     })();
   }, []);
@@ -45,8 +46,15 @@ const NavBar = () => {
     e.preventDefault();
 
     try {
-      await magic.user.logout();
-      router.push("/login");
+      const response = await fetch("/api/logout", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${didToken}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      const res = await response.json();
     } catch (error) {
       console.error("Error logging out", error);
       router.push("/login");
